@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Exam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #f6d365, #fda085);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #444;
+        }
+        .exam-container {
+            background: #ffffff;
+            padding: 25px 35px;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); 
+            width: 80%;
+            max-width: 600px;
+            border: 1px solid #eee;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333; /* Dark text color */
+            font-weight: 600;
+        }
+        .question {
+            margin-bottom: 25px;
+        }
+        .question p {
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #555;
+        }
+        .options {
+            margin-bottom: 10px;
+        }
+        .options label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #666;
+            cursor: pointer;
+        }
+        .options input {
+            margin-right: 10px;
+            accent-color: #fda085;
+            transform: scale(1.2); 
+        }
+        .btn {
+            width: 100%;
+            padding: 12px 20px;
+            background: #f6b93b; 
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            text-transform: uppercase;
+            box-shadow: 0 6px 12px rgba(246, 185, 59, 0.3);
+        }
+        .btn:hover {
+            background: #e58e26; 
+            box-shadow: 0 8px 15px rgba(229, 142, 38, 0.4);
+        }
+
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            .exam-container {
+                padding: 20px;
+                width: 90%;
+            }
+            h1 {
+                font-size: 22px;
+            }
+            .btn {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="exam-container">
+        <h1>Online Exam</h1>
+        <form id="examForm">
+            <div class="question">
+                <p>1. What is the official currency of Japan?</p>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="Yen"> Yen</label>
+                    <label><input type="radio" name="q1" value="Dollar"> Dollar</label>
+                    <label><input type="radio" name="q1" value="Won"> Won</label>
+                    <label><input type="radio" name="q1" value="Yuan"> Yuan</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>2. What gas is used to extinguish fires?</p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="Oxygen"> Oxygen</label>
+                    <label><input type="radio" name="q2" value="Carbon Dioxide"> Carbon Dioxide</label>
+                    <label><input type="radio" name="q2" value="Nitrogen"> Nitrogen</label>
+                    <label><input type="radio" name="q2" value="Hydrogen"> Hydrogen</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>3. Which country is the biggest grower of coffee?</p>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="India"> India</label>
+                    <label><input type="radio" name="q3" value="Brazil"> Brazil</label>
+                    <label><input type="radio" name="q3" value="Spain"> Spain</label>
+                    <label><input type="radio" name="q3" value="Ethiopia"> Ethiopia</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>4. What is the phobia of thunder and rain?</p>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="Claustrophobia"> Claustrophobia</label>
+                    <label><input type="radio" name="q4" value="Ombrophobia"> Ombrophobia</label>
+                    <label><input type="radio" name="q4" value="Agoraphobia"> Agoraphobia</label>
+                    <label><input type="radio" name="q4" value="Acrophobia"> Acrophobia</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>5. What year was the Olympic Organization founded?</p>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="1886"> 1886</label>
+                    <label><input type="radio" name="q5" value="1894"> 1894</label>
+                    <label><input type="radio" name="q5" value="1902"> 1902</label>
+                    <label><input type="radio" name="q5" value="1912"> 1912</label>
+                </div>
+            </div>
+
+            <button type="button" class="btn" onclick="submitExam()">Submit</button>
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function submitExam() {
+            const answers = {
+                q1: "Yen",
+                q2: "Carbon Dioxide",
+                q3: "Brazil",
+                q4: "Ombrophobia",
+                q5: "1894"
+            };
+
+            let score = 0;
+            for (let key in answers) {
+                const selectedOption = document.querySelector(`input[name="${key}"]:checked`);
+                if (selectedOption && selectedOption.value === answers[key]) {
+                    score++;
+                }
+            }
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = `Your score: ${score} out of 5`;
+
+            if (score === 5) {
+                resultDiv.style.color = '#27ae60'; 
+            } else if (score >= 3) {
+                resultDiv.style.color = '#f1c40f'; 
+            } else {
+                resultDiv.style.color = '#e74c3c';
+            }
+        }
+    </script>
+</body>
+</html>

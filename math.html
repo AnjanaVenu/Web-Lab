@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>function</title>
+ <style>
+       
+	body{
+            background-color: FFB6C1;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 25px;
+	    }
+
+	 h1{
+            color: MidnightBlue;
+         }
+
+         p{
+            line-height: 1.5;
+         }
+ 
+ </style>
+</head>
+<body>
+<section>
+<h1><i>Math function</i></h1>
+<p><strong>1. Math.min(0, 150, 30, 20, -8, -200) is:</strong> <span id="min"></span></p>
+<p><strong>2. Math.max(12, 4, 5, 9, 0, -3) is:</strong> <span id="max"></span></p>
+<p><strong>3. Math.sign(-7) is:</strong> <span id="sign"></span></p>
+<p><strong>4. Math.trunc(4.2) is:</strong> <span id="trunc"></span></p>
+<p><strong>5. Math.abs(-36.9) is:</strong> <span id="abs"></span></p>
+<p><strong>6. Math.floor(2.8) is:</strong> <span id="floor"></span></p>	
+<p><strong>7. Math.ceil(8.6) is:</strong> <span id="ceil"></span></p>
+<p><strong>8. Math.pow(5,3) is:</strong> <span id="pow"></span></p>
+<p><strong>9. Math.round(7.7) is:</strong> <span id="round"></span></p>	
+<p><strong>10. Math.log(3) is:</strong> <span id="log"></span></p>
+</section>
+
+<script>
+document.getElementById('min').innerHTML =  Math.min(0, 150, 30, 20, -8, -200);
+document.getElementById('max').innerHTML = Math.max(12, 4, 5, 9, 0, -3);
+document.getElementById('sign').innerHTML = Math.sign(-7);
+document.getElementById('trunc').innerHTML = Math.trunc(4.2);
+document.getElementById('abs').innerHTML = Math.abs(-36.9);
+document.getElementById('floor').innerHTML = Math.floor(2.8);
+document.getElementById('ceil').innerHTML = Math.ceil(8.6);
+document.getElementById('pow').innerHTML =Math.pow(5,3);
+document.getElementById('round').textContent = Math.round(7.7);
+document.getElementById('log').innerHTML = Math.log(3);
+</script>
+
+
+</body>
+</html>

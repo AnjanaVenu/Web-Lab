@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Color</title>
+    <style>
+        body {
+            font-family: Comic Sans MS, Comic Sans, cursive;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #FFFFFF;
+        }
+        #changeColorButton {
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 25px;
+            border: none;
+            background-color: #FF0000;
+            color: white;
+            cursor: pointer;
+        }
+        #changeColorButton:hover {
+            background-color: #DC143C;
+        }
+        h1 {
+            font-size: 50px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Click the button to change the background color of the page...</h1>
+    <button id="changeColorButton">Change Background Color</button>
+
+    <script>
+        
+        const colors = ["blue", "yellow", "green", "violet"];
+        let currentColorIndex = 0;
+
+     
+        const button = document.getElementById('changeColorButton');
+
+        
+        button.addEventListener('click', () => {
+           
+            document.body.style.backgroundColor = colors[currentColorIndex];
+
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+        });
+    </script>
+</body>
+</html>

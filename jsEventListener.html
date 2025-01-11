@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listener</title>
+    <style>
+   
+        body {
+            background-color: #f0f8ff; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        #myButton {
+            padding: 20px 50px; 
+            font-size: 20px; 
+            background-color: #9932CC;
+            color: white;
+            border: none;
+            border-radius: 8px; 
+        }
+
+ 
+
+        #myButton:active {
+            transform: scale(0.95); 
+        }
+
+        #message {
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button id="myButton">CLICK ME!!</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        const button = document.getElementById('myButton');
+        const message = document.getElementById('message');
+
+  
+        button.addEventListener('click', () => {
+            message.textContent = "You clicked the button!";
+        });
+
+
+        button.addEventListener('click', () => {
+            button.style.backgroundColor = 'blue';
+        });
+
+
+        button.addEventListener('click', () => {
+            console.log("Button is clicked!");
+        });
+
+ 
+        button.addEventListener('dblclick', () => {
+            alert("You double-clicked the button!");
+        });
+
+
+        button.addEventListener('mouseover', () => {
+            button.style.backgroundColor = 'limegreen';
+            button.style.color = 'black';
+        });
+
+  
+        button.addEventListener('mouseout', () => {
+            button.style.backgroundColor = '#9932CC';
+            button.style.color = 'white';
+        });
+
+      
+        button.addEventListener('contextmenu', (event) => {
+            event.preventDefault();
+            alert("Right-click is disabled on this button!");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calendar</title>
+    <style>
+        body {
+ 	    background-color: black;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: beige;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid beige;
+            padding: 10px;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+        }
+        th {
+            background-color: limegreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Calendar</h1>
+    <label for="year">Year: </label>
+    <input type="number" id="year" min="1900" max="2100" value="2023">
+    <label for="month">Month: </label>
+    <input type="number" id="month" min="1" max="12" value="1">
+    <button onclick="generateCalendar()">Show Calendar</button>
+    <div id="calendar"></div>
+
+    <script>
+        function generateCalendar() {
+            let year = document.getElementById('year').value;
+            let month = document.getElementById('month').value - 1;
+
+            let calendar = document.getElementById('calendar');
+            calendar.innerHTML = ''; // Clear previous calendar
+
+            let firstDay = new Date(year, month, 1).getDay();
+            let daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            let table = '<table>';
+            table += '<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>';
+            
+            table += '<tr>';
+            for (let i = 0; i < firstDay; i++) {
+                table += '<td></td>';
+            }
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                if ((firstDay + day - 1) % 7 === 0) {
+                    table += '</tr><tr>';
+                }
+                table += `<td>${day}</td>`;
+            }
+
+            table += '</tr></table>';
+            calendar.innerHTML = table;
+        }
+    </script>
+</body>
+</html>

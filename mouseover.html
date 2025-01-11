@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse-Over</title>
+    <style>
+        body {
+            font-family: "Lucida Handwriting", cursive;
+            text-align: center;
+            background-color: #f0f0f5;
+            margin: 20px;
+        }
+        #content {
+            width: 250px;
+            height: 200px;
+            border: 2px solid #000;
+            margin: 20px auto;
+            background: url('images/galaxy.jpg') no-repeat center;
+            background-size: cover;
+            cursor: pointer;
+        }
+        #displayArea {
+            width: 500px;
+            margin: 20px auto;
+            display: none;
+            text-align: center;
+        }
+        #displayArea img {
+            width: 250px;
+            height: 200px;
+            border: 2px solid #000;
+        }
+        #displayArea p {
+            font-size: 15px;
+            margin-top: 10px;
+            color: red;
+            font-family: "Times New Roman", Times, serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mouse-Over Event Handling</h1>
+    <div id="content" onmouseover="showContent()" role="button" aria-label="Hover to reveal content"></div>
+
+    <div id="displayArea" onmouseleave="hideContent()">
+        <img src="images/universe.jpg" alt="Earth - Third Planet from the Sun">
+        <p>The Milky Way is the galaxy that contains our Solar System, and is made up of billions of stars, gas, dust, and dark matter.</p>
+    </div>
+
+    <script>
+        function showContent() {
+            document.getElementById('content').style.display = 'none';
+            document.getElementById('displayArea').style.display = 'block';
+        }
+        function hideContent() {
+            document.getElementById('content').style.display = 'block';
+            document.getElementById('displayArea').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>

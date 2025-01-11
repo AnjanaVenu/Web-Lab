@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>String Functions</title>
+    <style>
+        body {
+             background-color: #87CEEB;
+             font-family: "Times New Roman", Times, serif;
+             font-size: 25px;
+             
+        }
+
+        h1 {
+            color: MidnightBlue;
+            margin: 1px;
+        }
+
+        p {
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+<section>
+<h1><i>String function</i></h1>
+<p><i>Original string: JavaScript is amazing!</i></p>
+<p><strong>1. UpperCase:</strong> <span id="upperCase"></span></p>
+<p><strong>2. LowerCase:</strong> <span id="lowerCase"></span></p>
+<p><strong>3. Index Of amazing:</strong> <span id="index"></span></p>
+<p><strong>4. Slice(0,8):</strong> <span id="slice"></span></p>
+<p><strong>5. Replace amazing with excellent:</strong> <span id="replace"></span></p>
+<p><strong>6. Split:</strong> <span id="split"></span></p>
+<p><strong>7. Length:</strong> <span id="length"></span></p>
+<p><strong>8. Substring(0,10):</strong> <span id="substring"></span></p>
+<p><strong>9. EndsWith("!"):</strong> <span id="endsWith"></span></p>
+<p><strong>10. Concatenate:</strong> <span id="concat"></span></p>
+</section>
+
+
+<script>
+ const str="JavaScript is amazing!";
+ document.getElementById('upperCase').textContent = str.toUpperCase();
+ document.getElementById('lowerCase').textContent = str.toLowerCase();
+ document.getElementById('index').textContent = str.indexOf('amazing');
+ document.getElementById('slice').textContent = str.slice(0,8);
+ document.getElementById('replace').textContent = str.replace('amazing','excellent');
+ document.getElementById('split').textContent = str.split(' ').join(', ');
+ document.getElementById('length').textContent = str.length;
+ document.getElementById('substring').textContent = str.substring('0,10');
+ document.getElementById('endsWith').textContent = str.endsWith('!');
+ document.getElementById('concat').textContent = str.concat(' is powerful!');
+</script>
+
+</body>
+</html>
+
