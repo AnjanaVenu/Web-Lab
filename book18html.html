@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details and Search</title>
+    <style>
+        body {
+            background-color: #FFFF66; 
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width:50%;
+        }
+        h1 {
+            color: #333;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 15px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            background-color: #FF6037;
+            color: white;
+            padding: 15px 32px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 320px;
+            margin-top: 10px;
+        }
+        input[type="submit"]:hover {
+            background-color: #FF6037;
+        }
+        hr {
+            width: 80%;
+            border: 1px solid #ccc;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Enter Book Details</h1>
+    <form action="book.php" method="POST">
+        <label for="title">Book Title:</label><br>
+        <input type="text" id="title" name="title" required><br><br>
+
+        <label for="author">Author:</label><br>
+        <input type="text" id="author" name="author" required><br><br>
+
+        <label for="edition">Edition:</label><br>
+        <input type="text" id="edition" name="edition" required><br><br>
+
+        <label for="publisher">Publisher:</label><br>
+        <input type="text" id="publisher" name="publisher" required><br><br>
+
+        <input type="submit" value="Save Details">
+    </form>
+
+    <hr>
+
+    
+    <h1>Search for Books by Author</h1>
+    <form action="search.php" method="GET">
+        <label for="search_author">Author Name:</label><br>
+        <input type="text" id="search_author" name="author" required><br><br>
+
+        <input type="submit" value="Search">
+    </form>
+</div>
+
+</body>
+</html>
